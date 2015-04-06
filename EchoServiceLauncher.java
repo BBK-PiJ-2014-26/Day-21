@@ -14,7 +14,7 @@ public class EchoServiceLauncher {
 		}
 		try {
 			// 2. Create the registry if there is not one
-			LocateRegistry.createRegistry(1099);
+			LocateRegistry.createRegistry(7);
 			// 3. Create the server object
 			EchoServer server = new EchoServer();
 			// 4. Register (bind) the server object on the registy.

@@ -11,7 +11,7 @@ public class EchoServer extends UnicastRemoteObject implements EchoService {
 	public String echo(String s) {
 		// This println is not necessary, but helps verifying whether
 		// the server has received the call or not on the remote machine
-		System.out.println("Replied to some client saying ’" + s + "’");
+		System.out.println("Replied to some client saying '" + s + "'");
 		return s;
 	}
 }
