@@ -15,9 +15,9 @@ public class EchoClient {
 			System.setSecurityManager(new RMISecurityManager());
 		}
 		try {
-			Remote service = Naming.lookup("//127.0.0.1:7/echo");
-			EchoService echoService = (EchoService) service;;
-			String receivedEcho = echoService.echo("Hello!");
+			Remote service = Naming.lookup("//127.0.0.1:1099/echo");
+			EchoService echoService = (EchoService) service;
+			System.out.println(echoService.echo("Hello!"));
 		} catch (MalformedURLException ex) {
 			ex.printStackTrace();
 		} catch (RemoteException ex) {

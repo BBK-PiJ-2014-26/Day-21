@@ -7,14 +7,14 @@ import java.net.MalformedURLException;
 
 public class EchoServiceLauncher {
 
-	private void launch() {
+	private static void launch() {
 		// 1. If there is no security manager, start one
-		if (System.getSecurityManager() == null) {
+		/*if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new RMISecurityManager());
-		}
+		}*/
 		try {
 			// 2. Create the registry if there is not one
-			LocateRegistry.createRegistry(7);
+			LocateRegistry.createRegistry(2050);
 			// 3. Create the server object
 			EchoServer server = new EchoServer();
 			// 4. Register (bind) the server object on the registy.
@@ -22,6 +22,7 @@ public class EchoServiceLauncher {
 			String registryHost = "//localhost/";
 			String serviceName = "echo";
 			Naming.rebind(registryHost + serviceName, server);
+			System.out.println("Server is ready.");
 		} catch (MalformedURLException ex) {
 			ex.printStackTrace();
 		} catch (RemoteException ex) {
@@ -30,7 +31,6 @@ public class EchoServiceLauncher {
 	}
 
 	public static void main(String[] args) {
-		EchoServiceLauncher launcher = new EchoServiceLauncher();
-		launcher.launch();
+		launch();
 	}
 }
